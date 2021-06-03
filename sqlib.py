@@ -289,8 +289,6 @@ def node2_curahhujan_konversi():
         data = "Hujan"
     return data
     
-
-
 def input_user(Username,Password,IP_Adress):
     db = sql_koneksi()
     cursor = db.cursor()
