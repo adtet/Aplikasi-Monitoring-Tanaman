@@ -155,31 +155,6 @@ def node1_curahhujan_konversi():
         data = "Hujan"
     return data
     
-
-
-def input_user(Username,Password,IP_Adress):
-    db = sql_koneksi()
-    cursor = db.cursor()
-    try:
-        cursor.execute("INSERT INTO `tb_user`(`Username`, `Password`, `IP_Address`) VALUES (%s,%s,%s)",(Username,Password,IP_Adress))
-        db.commit()
-    except(mysql.connector.Error,mysql.connector.Warning) as e:
-        print(e)
-
-def cek_data_user(Username,Password):
-    db = sql_koneksi()
-    cursor = db.cursor()
-    try:
-        cursor.execute("SELECT `Username`, `Password` FROM `tb_user` WHERE `Username`=%s AND `Password`=%s",(Username,Password))
-        c = cursor.fetchone()
-    except(mysql.connector.Error,mysql.connector.Warning) as e:
-        print(e)
-        c = None
-    if c == None:
-        return False
-    else:
-        return True
-
 def show_dataa() :
     db = sql_koneksi()
     cursor = db.cursor()
