@@ -25,7 +25,7 @@ def input_dataa(a,b,d,e,f):
 def show_data() :
     db = sql_koneksi()
     cursor = db.cursor()
-    cursor.execute ("SELECT `Time`, `Suhu`, `Kelembapan_udara` , `Intensitas_cahaya`, `Curah_hujan`, `Kelembapan_tanah` FROM `tb_data` ")
+    cursor.execute ("SELECT `Suhu`, `Kelembapan_udara` , `Intensitas_cahaya`, `Curah_hujan`, `Kelembapan_tanah` FROM `tb_data2`")
     rows = [x for x in cursor]  #data yang diambil dari sql ke json objek
     cols = [x[0] for x in cursor.description]  #data yang diambil dari sql ke json objek
     datas = []  #data yang diambil dari sql ke json objek
@@ -33,8 +33,12 @@ def show_data() :
         data = {}  #data yang diambil dari sql ke json objek
         for prop, val in zip(cols, row):  #data yang diambil dari sql ke json objek
             data[prop] = val  #data yang diambil dari sql ke json objek
-        datas.append(data)  
-    dataJson = json.dumps(datas)  #data yang diambil dari sql ke json objek
+        datas.append(data)
+    if len(datas) == 0:
+        data = []
+    else:
+        data = datas[-1]
+    dataJson = json.dumps(data)  #data yang diambil dari sql ke json objek
     return dataJson  #data yang diambil dari sql ke json objek
 
 def node1_suhu() :
@@ -169,7 +173,7 @@ def node1_curahhujan_konversi():
 def show_dataa() :
     db = sql_koneksi()
     cursor = db.cursor()
-    cursor.execute ("SELECT `Time`, `Suhu`, `Kelembapan_udara` , `Intensitas_cahaya`, `Curah_hujan`, `Kelembapan_tanah` FROM `tb_data2`")
+    cursor.execute ("SELECT `Suhu`, `Kelembapan_udara` , `Intensitas_cahaya`, `Curah_hujan`, `Kelembapan_tanah` FROM `tb_data2`")
     rows = [x for x in cursor]  #data yang diambil dari sql ke json objek
     cols = [x[0] for x in cursor.description]  #data yang diambil dari sql ke json objek
     datas = []  #data yang diambil dari sql ke json objek
@@ -178,7 +182,11 @@ def show_dataa() :
         for prop, val in zip(cols, row):  #data yang diambil dari sql ke json objek
             data[prop] = val  #data yang diambil dari sql ke json objek
         datas.append(data)
-    dataJson = json.dumps(datas)  #data yang diambil dari sql ke json objek
+    if len(datas) == 0:
+        data = []
+    else:
+        data = datas[-1]
+    dataJson = json.dumps(data)  #data yang diambil dari sql ke json objek
     return dataJson  #data yang diambil dari sql ke json objek
 
 def node2_suhu() :
