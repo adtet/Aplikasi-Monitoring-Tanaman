@@ -32,8 +32,10 @@ def show_data() :
         data = {}  #data yang diambil dari sql ke json objek
         for prop, val in zip(cols, row):  #data yang diambil dari sql ke json objek
             data[prop] = val  #data yang diambil dari sql ke json objek
-        datas.append(data)  
-    dataJson = json.dumps(datas)  #data yang diambil dari sql ke json objek
+        datas.append(data)
+    for i in range(0,len(datas)):
+        datas[i]['Time'] = str(datas[i]['Time'])      
+    dataJson = json.dumps(datas[-1])  #data yang diambil dari sql ke json objek
     return dataJson  #data yang diambil dari sql ke json objek
 
 def node1_suhu() :
@@ -50,7 +52,7 @@ def node1_suhu() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i]['data'] = datas[i].pop("Suhu")
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -68,7 +70,7 @@ def node1_kelembapanudara() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i]['data'] = datas[i].pop("Kelembapan_udara")
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -86,7 +88,7 @@ def node1_kelembapantanah() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i]['data'] = datas[i].pop("Kelembapan_tanah")
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -120,7 +122,7 @@ def node1_intensitascahaya() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i]['data'] = datas[i].pop("Intensitas_cahaya")
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -138,7 +140,7 @@ def node1_curahhujan() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i]['data'] = datas[i].pop("Curah_hujan")
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -167,7 +169,9 @@ def show_dataa() :
         for prop, val in zip(cols, row):  #data yang diambil dari sql ke json objek
             data[prop] = val  #data yang diambil dari sql ke json objek
         datas.append(data)
-    dataJson = json.dumps(datas)  #data yang diambil dari sql ke json objek
+    for i in range(0,len(datas)):
+        datas[i]['Time'] = str(datas[i]['Time'])
+    dataJson = json.dumps(datas[-1])  #data yang diambil dari sql ke json objek
     return dataJson  #data yang diambil dari sql ke json objek
 
 def node2_suhu() :
@@ -184,7 +188,7 @@ def node2_suhu() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i]['data'] = datas[i].pop("Suhu")
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -202,7 +206,7 @@ def node2_kelembapanudara() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i]['data'] = datas[i].pop("Kelembapan_udara")
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -220,7 +224,7 @@ def node2_kelembapantanah() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i]['data'] = datas[i].pop("Kelembapan_tanah")
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -254,7 +258,7 @@ def node2_intensitascahaya() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i]['data'] = datas[i].pop("Intensitas_cahaya")
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -272,7 +276,7 @@ def node2_curahhujan() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i]['data'] = datas[i].pop("Curah_hujan")
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
