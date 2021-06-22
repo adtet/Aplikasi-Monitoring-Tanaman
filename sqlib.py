@@ -1,4 +1,5 @@
 
+from os import times
 from re import X
 import mysql.connector
 import json
@@ -50,7 +51,9 @@ def node1_suhu() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i] ['data'] =  datas[i]['Suhu'] 
+        del datas[i]['Suhu'] 
+        
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -68,7 +71,9 @@ def node1_kelembapanudara() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i] ['data'] =  datas[i]['Kelembapan_udara']
+        del datas[i]['Kelembapan_udara'] 
+       
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -86,6 +91,8 @@ def node1_kelembapantanah() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
+        datas[i] ['data'] =  datas[i]['Kelembapan_tanah']
+        del datas[i]['Kelembapan_tanah'] 
 
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
@@ -120,6 +127,8 @@ def node1_intensitascahaya() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
+        datas[i] ['data'] =  datas[i]['Intensitas_cahaya']
+        del datas[i]['Intensitas_cahaya'] 
 
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
@@ -138,7 +147,9 @@ def node1_curahhujan() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i] ['data'] =  datas[i]['Curah_hujan']
+        del datas[i]['Curah_hujan'] 
+    
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -184,6 +195,8 @@ def node2_suhu() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
+        datas[i] ['data'] =  datas[i]['Suhu']
+        del datas[i]['Suhu'] 
 
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
@@ -202,6 +215,8 @@ def node2_kelembapanudara() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
+        datas[i] ['data'] =  datas[i]['Kelembapan_udara']
+        del datas[i]['Kelembapan_udara'] 
 
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
@@ -220,7 +235,9 @@ def node2_kelembapantanah() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
-
+        datas[i] ['data'] =  datas[i]['Kelembapan_tanah']
+        del datas[i]['Kelembapan_tanah'] 
+        
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
 
@@ -254,6 +271,8 @@ def node2_intensitascahaya() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
+        datas[i] ['data'] =  datas[i]['Intensitas_cahaya']
+        del datas[i]['Intensitas_cahaya'] 
 
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
@@ -272,6 +291,8 @@ def node2_curahhujan() :
         datas.append(data)
     for i in range(0,len(datas)):
         datas[i]['Time'] = str(datas[i]['Time'])
+        datas[i] ['data'] =  datas[i]['Curah_hujan']
+        del datas[i]['Curah_hujan'] 
 
     dataJson = json.dumps(datas)  
     return dataJson  #data yang diambil dari sql ke json objek
